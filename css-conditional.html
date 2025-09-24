@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Testing Playground</title>
+    <style>
+        /* Add your CSS tests here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        .test-box {
+            border: 2px dashed #ccc;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Testing Playground</h1>
+        
+        <div class="test-box">
+            <h2>Test Box 1</h2>
+            <p>This is a paragraph for testing text styles.</p>
+            <a href="#" class="button">Test Button</a>
+        </div>
+        
+        <div class="test-box">
+            <h2>Test Box 2</h2>
+            <p>Another test paragraph with <span>inline elements</span> for styling.</p>
+            <button class="button">Another Button</button>
+        </div>
+        
+        <div class="test-box">
+            <h2>Flexbox Test</h2>
+            <div style="display: flex; gap: 10px;">
+                <div style="flex: 1; background: #e0e0e0; padding: 10px;">Flex Item 1</div>
+                <div style="flex: 1; background: #d0d0d0; padding: 10px;">Flex Item 2</div>
+                <div style="flex: 1; background: #c0c0c0; padding: 10px;">Flex Item 3</div>
+            </div>
+        </div>
+        
+        <div class="test-box">
+            <h2>Form Elements</h2>
+            <input type="text" placeholder="Text input" style="padding: 8px; margin: 5px;">
+            <input type="email" placeholder="Email input" style="padding: 8px; margin: 5px;">
+            <select style="padding: 8px; margin: 5px;">
+                <option>Select option</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+            </select>
+        </div>
+    </div>
+</body>
+</html>
