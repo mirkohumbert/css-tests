@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Testing Playground</title>
+    <title>CSS if() Conditions Testing</title>
     <style>
-        /* Add your CSS tests here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f0f0f0;
+
+            background-color: if(
+                supports(color: oklch(0.83 0.08 94 / 10.24%)): oklch(0.83 0.08 94 / 10.24%);
+                else: #e0e0e01a;
+            );
+
         }
         
         .container {
-            max-width: 800px;
+            max-width: if(
+                media(width >= 1200px): 800px;
+                media(768px <= width < 1200px): 600px;
+                media(480px <= width < 768px): 450px;
+                else: 90%
+            );
             margin: 0 auto;
             background: white;
             padding: 20px;
@@ -28,14 +37,29 @@
         }
         
         .test-box {
-            border: 2px dashed #ccc;
+            border: if(
+                style(--status: stop): 2px dashed #ccc;
+                style(--status: ready): 2px dashed #ffcc66;
+                style(--status: go): 2px dashed #bbff99;
+                else: 2px dotted #aaa;
+            );
             padding: 15px;
             margin: 10px 0;
+            --status: attr(data-status type(<custom-ident>));
+            background-color: if(
+                style(--status: stop): #ff1a1a;
+                style(--status: ready): #ffcc66;
+                style(--status: go): #bbff99;
+                else: #ddd
+            );
         }
         
         .button {
             display: inline-block;
-            padding: 10px 20px;
+            padding: if(
+                media(any-pointer: fine): 10px 20px;
+                else: 20px 40px;
+            );
             background: #007bff;
             color: white;
             text-decoration: none;
@@ -46,9 +70,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>CSS Testing Playground</h1>
+        <h1>CSS if() Conditions Testing</h1>
         
-        <div class="test-box">
+        <div class="test-box" data-status="stop">
             <h2>Test Box 1</h2>
             <p>This is a paragraph for testing text styles.</p>
             <a href="#" class="button">Test Button</a>
@@ -60,7 +84,7 @@
             <button class="button">Another Button</button>
         </div>
         
-        <div class="test-box">
+        <div class="test-box" data-status="ready">
             <h2>Flexbox Test</h2>
             <div style="display: flex; gap: 10px;">
                 <div style="flex: 1; background: #e0e0e0; padding: 10px;">Flex Item 1</div>
@@ -69,7 +93,7 @@
             </div>
         </div>
         
-        <div class="test-box">
+        <div class="test-box" data-status="go">
             <h2>Form Elements</h2>
             <input type="text" placeholder="Text input" style="padding: 8px; margin: 5px;">
             <input type="email" placeholder="Email input" style="padding: 8px; margin: 5px;">
